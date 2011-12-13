@@ -66,14 +66,14 @@ githubのアカウントは"amatsuda"で、名字も名前も普通すぎるた�
 
 == スポンサー講演
 
-=== Drip: instant replay
+=== 関さん「Drip: instant replay」
 
 : 発表資料
   ((<Drip Instant Replay|URL:http://www.druby.org/DripReplay.pdf>))
 
 == 一般講演
 
-=== クックパッドのものづくりについて
+=== sasata299 (ささたつ)さん「クックパッドのものづくりについて」
 * sasata299
   * からあげ、広島カープ
   * 餃子
@@ -107,9 +107,17 @@ githubのアカウントは"amatsuda"で、名字も名前も普通すぎるた�
   * 尊敬できるエンジニアと働ける
   * エンジニアの意思が尊重される
 
-=== 演能
+=== artonさん「演能」
 
-=== 続・Float is Lagacy
+: 資料
+  ((<URL:http://download.microsoft.com/download/7/A/1/7A1FED59-56D5-4CED-8327-D856F44AFC48/D5-302_2_sidesession.ppsx>))
+  ((<URL:http://msdn.microsoft.com/ja-jp/windowsazure/hh531535>))
+
+=== 村田賢太「続・Float is Lagacy」
+* @mrkn
+
+: 資料
+  ((<URL:http://speakerdeck.com/u/mrkn/p/float-is-legacy>))
 
 == 勉強会
 
