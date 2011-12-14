@@ -115,19 +115,40 @@ githubのアカウントは"amatsuda"で、名字も名前も普通すぎるた�
 
 === 村田賢太「続・Float is Lagacy」
 * @mrkn
+* 数値系に興味がある
+* Ruby Sapporo, 2012年夏に札幌RubyKaigiがあるかもないかも
+* CookPadに
+* Floatはあんまりいらないよね?
+* Rationalで十分!でもリテラルがない
+* Float classはCでいうdoubleのラッパでBoxingしている
+  * もっとくわしいことはIEEE754へ
+* Floatは実数の近似値である、ほとんどの実数を正確に表せない
+* Rubyは小数をFloatとして解釈する
+* このためRubyのredmineにはたくさんのFloatに関するissueがあげられる
+* "What Every Computer Scientist Should Know About Floating-Point Arithmetic"を読んだ方がいいけど、誤差はいやだよね
+* そこで10進表記できるRationalですよ。つまりquoしない、リテラルでかける。
+  * パッチは((<こちら|URL:http://speakerdeck.com/embed/4e872735f06c200053005582?origin=speakerdeck&size=preview&slide=1#>))
+* 気になる速度は?
+  * Floatの2〜5倍遅い、Cのdoubleより2桁遅い
+  * Cスゲー, Rational遅いけど、Floatも速くはないな
+* FloatとRationalは用途は異なるけど、Rationalの方がhuman orientedだな
+* というわけで、小数をRationalとして解釈するようになれば良いよね
 
 : 資料
   ((<URL:http://speakerdeck.com/u/mrkn/p/float-is-legacy>))
 
 == 勉強会
+* Rubyレシピブックの181〜186
+* エンコーディング
+  * Railsでは内部エンコーディングはUTF-8一択
+* CookPadのコーディングガイドって?
+  * Railsのスタイルは意識する((＜http://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#follow-the-coding-conventions>))
 
 == おわりに
-
-はじめて栃木に
-
-懇親会はウニコ
-
-2011年最後のRegionalRubyKaigiとなったようです。
+* CookPad率
+* はじめて栃木にきた人おおい
+* 懇親会はウニコ、那須塩原駅きたら是非
+* 2011年最後のRegionalRubyKaigiとなったようです。
 
 == 書いた人
 佐々木 揚(@you_ssk)
