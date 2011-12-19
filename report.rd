@@ -58,7 +58,6 @@ githubのアカウントは"amatsuda"で、名字も名前も普通すぎるた�
 * 時間切れ
 * 自分が困ったら人も困っているかも
 * Socialであろうとした結果として人に合うのも良いよ
-
 * はずかしがらずにコード晒そうぜ!
 
 : 発表資料
@@ -67,6 +66,9 @@ githubのアカウントは"amatsuda"で、名字も名前も普通すぎるた�
 == スポンサー講演
 
 === 関さん「Drip: instant replay」
+* 館野さんの代役
+* The dRuby BookはAmazonで予約できるよ
+* RubyKaigi2011のDripの再演
 
 : 発表資料
   ((<Drip Instant Replay|URL:http://www.druby.org/DripReplay.pdf>))
@@ -108,6 +110,29 @@ githubのアカウントは"amatsuda"で、名字も名前も普通すぎるた�
   * エンジニアの意思が尊重される
 
 === artonさん「演能」
+* Rubyの説明
+* Rubyのサポート
+  * BestEffortだよ
+* WindowsでのRubyのバイナリパッケージ
+  * もちろんASRがおすすめ
+* Ruby on Rails on Windows
+  * 仮想ホスト
+  * マルチプロセス
+* そのかたちを実現したEnnou(演能)
+  * マルチプロセスサポートなRackハンドラ
+* NougakuDo(能楽堂)
+  * Ruby1.9.3でRailsはv3系
+  * x64-Native
+* 能楽堂コンパニオン
+* WindowsのRoRの運用プラットフォームとしてAzureはいいよ!
+==== Rubyのマルチスレッドについて
+* 時間があまったので
+* Rubyのマルチスレッドの並列実行はある条件でのみ
+  * それはIO待ち
+* RubyのIOライブラリはIOの待機状態になるときにGVLを解放している
+  * IO完了したらGVLを待って実行を継続する
+* 並行動作はCの拡張ライブラリで制御可能
+  * Ennouは並行動作に対応したライブラリです
 
 : 資料
   ((<URL:http://download.microsoft.com/download/7/A/1/7A1FED59-56D5-4CED-8327-D856F44AFC48/D5-302_2_sidesession.ppsx>))
@@ -142,7 +167,7 @@ githubのアカウントは"amatsuda"で、名字も名前も普通すぎるた�
 * エンコーディング
   * Railsでは内部エンコーディングはUTF-8一択
 * CookPadのコーディングガイドって?
-  * Railsのスタイルは意識する((＜http://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#follow-the-coding-conventions>))
+  * Railsのスタイルは意識する((<URL:http://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#follow-the-coding-conventions>))
 
 == おわりに
 * CookPad率
