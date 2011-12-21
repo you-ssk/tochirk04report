@@ -53,6 +53,7 @@ githubのアカウントは"amatsuda"で、名字も名前も普通すぎるた�
 
 ==== 第二部
 * Social Coding Practice 0,1,4
+  * もっとあったけど時間不足
 * Git知ろう
 * プログラミングの日々の結果として誠実で有意義なコミットできるか
 * 時間切れ
@@ -63,12 +64,43 @@ githubのアカウントは"amatsuda"で、名字も名前も普通すぎるた�
 : 発表資料
   ((<オブジェクト指向ソーシャルコーディングスクリプト言語Ruby|URL:http://speakerdeck.com/u/a_matsuda/p/object-oriented-social-coding-scripting-language-ruby>))
 
+松田さんといえばRailsのイメージが強いのですが、
+とちぎRubyではRailsの濃い話についていける人がすくなさそう、
+ということでRubyとgithubによるソーシャルコーディングをたのしもうよ!
+
 == スポンサー講演
 
 === 関さん「Drip: instant replay」
-* 館野さんの代役
+* 今日は館野さんの代役として、館野さんとの出会い
 * The dRuby BookはAmazonで予約できるよ
 * RubyKaigi2011のDripの再演
+* Drip=ストリーム指向ストレージ
+* 追記のみ、かっこいいログ
+* PTupleSpaceの別解
+  * 失敗してもやりなおせる協調機構
+  * 履歴付きHash
+* Queueとの比較
+  * 違いは要素が減らないこと、データの到着を待てるのは同じ
+* DripのAPIはread/write
+  * バッチ処理はたいてい失敗する。失敗したときに最初からやりなおさないで、途中からやりなおせる
+* Hashとの比較
+  * 辞書のようで、タグを使うことでHash（履歴付き)としても
+  * 要素を消すことができない、そのため履歴がある
+* keys/eachはできない
+  * あえてAPIを減らす
+* Dripは一次元のストリームで、QueueにもHashにも見える
+* Dripのkeyとindexの実装
+* 識別子(key)を安価に生成することは主要なテーマ
+  * "Objectは集合の要素ではない"ってどうゆう意味だっけ?
+* RubyKaigiでの質問へのアンサー
+* Dripが受け付けた順でシリアライズ
+  * 情報が発生した時刻をしりたければそれもつける
+* 索引は[key,value]と[tag,key]でどちらも赤黒木
+* 更新されなければソート済みの配列とBSearchでよさげ
+* Partitioningするなら時刻順がおすすめかな
+* eachやkeysはつくったけど消した
+  * なんでやめたかの理由を説明
+
 
 : 発表資料
   ((<Drip Instant Replay|URL:http://www.druby.org/DripReplay.pdf>))
@@ -172,7 +204,9 @@ githubのアカウントは"amatsuda"で、名字も名前も普通すぎるた�
 == おわりに
 * CookPad率
 * はじめて栃木にきた人おおい
-* 懇親会はウニコ、那須塩原駅きたら是非
+* 懇親会はウニコにて
+  * 毎月の勉強会でのtoRubyでいうポジペ
+  * おいしい料理
 * 2011年最後のRegionalRubyKaigiとなったようです。
 
 == 書いた人
