@@ -127,6 +127,8 @@ Drip#keysとDrip#eachは一度作ったけど消したそうです。なんと�
 
 ささたつさんは最初にCookPadのミッション"毎日の料理を楽しみにすることで、心からの笑顔を増やす"を紹介しました。クックパッドでのものづくりはこのミッションを達成する、そのことだけを考えて実行しているそうです。
 
+((<IMG:http://farm8.staticflickr.com/7174/6445165877_9c77a3f4d1.jpg>))
+
 クックパッドの社員は約90名で、そのうちの4割がエンジニアだそうです。
 エンジニアは大きく1.サービス開発、2.インフラ、3.開発基盤の３つのグループに分かれているそうです。
 
@@ -148,32 +150,41 @@ Bestなサービスを提供するための開発で使う"Emotion Oriented Goal
 
 
 === artonさん「演能」
-* Rubyの説明
-* Rubyのサポート
-  * BestEffortだよ
-* WindowsでのRubyのバイナリパッケージ
-  * もちろんASRがおすすめ
-* Ruby on Rails on Windows
-  * 仮想ホスト
-  * マルチプロセス
-* そのかたちを実現したEnnou(演能)
-  * マルチプロセスサポートなRackハンドラ
-* NougakuDo(能楽堂)
-  * Ruby1.9.3でRailsはv3系
-  * x64-Native
-* 能楽堂コンパニオン
-* WindowsのRoRの運用プラットフォームとしてAzureはいいよ!
-==== Rubyのマルチスレッドについて
-* 時間があまったので
-* Rubyのマルチスレッドの並列実行はある条件でのみ
-  * それはIO待ち
-* RubyのIOライブラリはIOの待機状態になるときにGVLを解放している
-  * IO完了したらGVLを待って実行を継続する
-* 並行動作はCの拡張ライブラリで制御可能
-  * Ennouは並行動作に対応したライブラリです
 
-: 資料
+((<IMG:http://farm8.staticflickr.com/7169/6445297183_0f8329e761.jpg>))
+
+artonさんはtoRuby勉強会拡大版(とちぎRubyKaigiの前身(?))の頃から参加していただいています。
+
+今回はThe Microsoft Conference 2011で話された"オープンソースとマイクロソフトの良い関係
+～Ruby on Rails on Azure～"をベースに、Windows上でのRubyとWindows上でのRailsを中心にお話されました。
+
+Rubyがサポートするプラットフォームはいくつかの段階にわかれていて、SupportedなのはDebian GNU/Linux 4.0 on IA32だけです。WindowsはBest effortというレベルで、Mac OS X(Intel)などと同等であり高いレベルにあります。artonさんはusaさんをはじめとするメンテナの努力によるところが大きいとおっしゃいました。
+
+WindowsでのRubyのバイナリパッケージはいくつかあるが、おすすめはWindowsの作法に則っているActiveScriptRuby(artonさんが作成)とのことです。
+
+拡張ライブラリをつくったりGemの作成には自分でビルドできる環境が必要ですが、これは"((<Ruby環境構築講座 Windows編|URL:http://tatsu-zine.com/books/winrubybuild>))"(著者はartonさん)を読んで環境をつくれます。
+このようにWindowsでRubyを使って開発できることを伝えました。
+
+話題はRailsに移り、artonさんが作成されたEnnouというライブラリを紹介されました。
+Ruby on RailsによるWebアプリケーションは起動に時間がかかるため、"仮想ホスト＋マルチプロセスでRailsは一度起動したら起動しっぱなし"が効率的であると考えられます。
+WindowsにはHttp.sysというカーネルモードドライバがありますが、Ennouはこれを利用するRackハンドラでマルチプロセスを実現しています。
+
+NougakuDo(能楽堂)はx64のRubyとRuby on Rails、その実行に必要なライブラリをパッケージしたものです。とちぎRuby会議が行われた12月時点ではRuby1.9.3でRailsはv3系が入っており簡単にRailsアプリケーションの開発を始められるようになっているそうです。
+
+さらに荒井省三さんが作成された能楽堂コンパニオンを紹介されました。これはNougakuDoを使って開発したRailsアプリをWindowsAzureにデプロイするツールだそうです。
+
+このようにWindowsでもRuby on Railsは運用できて、Windows AzureはRoRの運用プラットフォームとして有力な選択肢であると述べられました。
+
+このあと時間が多少あまったので、artonさんはRubyのマルチスレッドについて説明されました。
+ご存知の方が多いかと思いますが、Rubyのマルチスレッドはグリーンスレッドなので普通は並列実行はしないです。
+ただしIO待ちが発生したときだけ並列実行ができます。
+これはRubyのIOライブラリはIOの待機状態になるときにGVLを解放しているためで、IO完了したらGVLを待って実行を継続します。並行動作はCの拡張ライブラリで制御可能で、さきほど紹介したEnnouは並行動作に対応したライブラリだと付け加えられました。
+
+Windowsに詳しいartonさんならではの発表となりました。
+
+: 資料1
   ((<URL:http://download.microsoft.com/download/7/A/1/7A1FED59-56D5-4CED-8327-D856F44AFC48/D5-302_2_sidesession.ppsx>))
+: 資料2
   ((<URL:http://msdn.microsoft.com/ja-jp/windowsazure/hh531535>))
 
 === 村田賢太「続・Float is Lagacy」
