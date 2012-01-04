@@ -187,47 +187,58 @@ Windowsに詳しいartonさんならではの発表となりました。
 : 資料2
   ((<URL:http://msdn.microsoft.com/ja-jp/windowsazure/hh531535>))
 
-=== 村田賢太「続・Float is Lagacy」
-* @mrkn
-* 数値系に興味がある
-* Ruby Sapporo, 2012年夏に札幌RubyKaigiがあるかもないかも
-* CookPadに
-* Floatはあんまりいらないよね?
-* Rationalで十分!でもリテラルがない
-* Float classはCでいうdoubleのラッパでBoxingしている
-  * もっとくわしいことはIEEE754へ
-* Floatは実数の近似値である、ほとんどの実数を正確に表せない
-* Rubyは小数をFloatとして解釈する
-* このためRubyのredmineにはたくさんのFloatに関するissueがあげられる
-* "What Every Computer Scientist Should Know About Floating-Point Arithmetic"を読んだ方がいいけど、誤差はいやだよね
-* そこで10進表記できるRationalですよ。つまりquoしない、リテラルでかける。
-  * パッチは((<こちら|URL:http://speakerdeck.com/embed/4e872735f06c200053005582?origin=speakerdeck&size=preview&slide=1#>))
-* 気になる速度は?
-  * Floatの2〜5倍遅い、Cのdoubleより2桁遅い
-  * Cスゲー, Rational遅いけど、Floatも速くはないな
-* FloatとRationalは用途は異なるけど、Rationalの方がhuman orientedだな
-* というわけで、小数をRationalとして解釈するようになれば良いよね
+=== 村田賢太「続・Float is Legacy」
+
+最後の一般講演は@mrknさんです。
+mrknさんはCRubyのコミッタでbigdecimalやMac OS Xのメンテナをされいます。
+数値系に興味があるということで、FloatやRationalの話をされました。
+
+((<IMG:http://farm8.staticflickr.com/7165/6445301341_4be52e1ef2.jpg>))
+
+まずFloatについて説明されました。
+RubyのFloat classはCでいうdoubleのラッパでBoxingしている。
+オブジェクトをアロケートする必要があるので、生成コストは安くはない。
+またFloatは実数の近似値であって、ほとんどの実数を正確に表せないという性質を詳しく説明されました。
+Rubyは小数の表記をFloatとして解釈するのだけれど、先に説明したFloatの性質を知らない人によってRubyのredmineにはたくさんのFloatに関するissueがあげられているそうです。例えば((<こんなの|URL:http://redmine.ruby-lang.org/issues/4576>))。
+Floatに関しては"What Every Computer Scientist Should Know About Floating-Point Arithmetic"を読んでほしいそうです。
+
+次にRationalを紹介されました。
+Float特有のこのような誤差はRationalを使えばなくすことができる。
+けれでもリテラルがないので、知らない人には届かない。知っている人はRationalで書くからというジレンマがあります。
+そこでmrknさんは小数表記リテラルでかくとRationalに解釈してくれるパッチを書いたそうです。
+パッチは((<こちら|URL:http://speakerdeck.com/embed/4e872735f06c200053005582?origin=speakerdeck&size=preview&slide=1#>))にあります。
+
+誤差がないのは良いことなんだけど、そのかわり速度が気になるので、ベンチマークを取ってみた。
+結果はRaitonalはFloatの2〜5倍遅い、Cのdoubleより2桁遅いという結果になったそうです。
+やっぱりCスゲー, Rational遅いけど、Floatも速くはないなという感想です。
+
+最後にFloatとRationalは用途は異なるけど、FloatよりRationalの方がhuman orientedである。
+Rubyは小数リテラルをRationalとして解釈するようになればうれしいと述べ講演を終えました。
 
 : 資料
   ((<URL:http://speakerdeck.com/u/mrkn/p/float-is-legacy>))
 
 == 勉強会
-* Rubyレシピブックの181〜186
-* エンコーディング
-  * Railsでは内部エンコーディングはUTF-8一択
-* CookPadのコーディングガイドって?
-  * Railsのスタイルは意識する((<URL:http://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#follow-the-coding-conventions>))
+
+プログラムの最後は、月イチのtoRuby勉強会の続きを行いました。
+Rubyレシピブックの181〜186を読んで写経するという(いつもの)スタイルです。
+勉強しながら、わからないことや訊いてみたいことが参加者が自由に発言し、知っている人がそれに答えるというやりとりがあり、エンコーディングに関する話題で盛り上がりました。
+* Railsアプリ開発では内部エンコーディングはUTF-8一択
+* CookPadのコーディングガイドってあるの?という質問には松田さんは「Railsのスタイルは意識する((<URL:http://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#follow-the-coding-conventions>))」と回答されていました。
 
 == おわりに
-* CookPad率
-* はじめて栃木にきた人おおい
-* 懇親会はウニコにて
-  * 毎月の勉強会でのtoRubyでいうポジペ
-  * おいしい料理
-* 2011年最後のRegionalRubyKaigiとなったようです。
+このように4回目となるとちぎRuby会議は無事終了しました。
+今回はCookPad社員の参加が多かったですね。またはじめて栃木にきた人が多いことも印象に残りました。
+
+懇親会は那須塩原駅近くのウニコというお店で行いました。
+懇親会ではtoRubyメンバであるという自覚がある人がポジペを用意して喋りました。
+toRubyのポジペについては((<関さんから紹介|URL:http://www.druby.org/tochirk04.pdf>))がありましたが、toRubyのポジペの雰囲気を感じていただけたのではないでしょうか。
+
+そしてとちぎRuby会議04は2011年最後のRegionalRubyKaigiとなったようです。
+2011年でRubyKaigiは終わってしまったので、みなさん来年はどこかのRegionalRubyKaigiに出かけてみてはいかがでしょうか?
 
 == 書いた人
 佐々木 揚(@you_ssk)
 
-== 写真
-((<URL:http://www.flickr.com/photos/recompile_net/sets/72157628255611679/with/6445062035/>))
+== 写真提供
+((<Rubyist写真家の高井さん|URL:http://www.flickr.com/photos/recompile_net/sets/72157628255611679/with/6445062035/>))
